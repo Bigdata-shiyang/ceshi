@@ -3,12 +3,7 @@
 int main(){
 
 
-	printf("code1\n");
-	printf("code1\n");
-	printf("code1\n");
-	printf("code1\n");
-	printf("code1\n");
-	printf("code1\n");
-	printf("code1\n");
+	
+	printf("删除跑路\n");
 	return 0;
 }
