@@ -199,6 +199,5 @@ git rebase --continue #版本合并，解决冲突后可以直接上传
 
 ### 插入图片
 
-![代码截图](https://github.com/Bigdata-shiyang/ceshi/blob/main/202406091833864.png "代码长截图")
 
 
