@@ -1,4 +1,12 @@
 Markdown , 文本修饰语言， 用特殊符号修饰正文效果
+# Github笔记
+
+## 一、认识Github<br>
+### 1.1 Github标签<br>
+Explore 探索页<br>
+Topics 技术分类<br>
+Trending 推送<br>
+events 事件<br>
 
 ## 标题修饰符\#
 
