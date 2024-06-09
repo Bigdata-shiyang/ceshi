@@ -26,6 +26,100 @@ tutorial 资料<br>
 资源存储单位，用于存储代码数据，一个仓库由若干分支构成。<br>
 每个仓库创建后都有一个默认主分支（Matser/Main），代码上传都存储在分支里。可以用于多人协作开发。<br>
 
+## 三、Git的配置与使用
+`Git 分布式版本控制系统`<br>
+Github网站仓库中的工程、已上线发布的工程，开发者可以随时使用git软件，对项目进行更新、访问、控制与管理，用于同步管理线上工程<br>
+### 3.1 绑定远程仓库
+1. 完成账号与设备绑定<br>
+   1. 查看本地配置文件<br>
+   ```bash
+   git config --list
+   ```
+   2. 修改或添加config配置项<br>
+   ```bash
+   git config --global user.name 用户名
+   git config --global user.email 注册邮箱
+   ```
+   3. 生成本机设备密文<br>
+   ```bash
+   ssh -keygen -t rsa -C 注册邮箱
+   ```
+   4. 测试关联是否完成<br>
+   ```bash
+   ssh -T git@github.com
+   ```
+2. 为目标仓库设置别名，创建一个云端仓库的SSH地址别名<br>
+   ```bash
+   git remote add orgin(别名) SSH地址(云端仓库地址)
+
+   git remote origin remove #删除地址别名
+   ```
+
+### 3.2 本地资源上传<br>
+1. 创建本地仓库<br>
+```bash
+git init
+```
+2. 将数据添加到缓冲区<br>
+```bash
+git add 文件名 #将数据资源添加到git缓冲区
+
+git status #查看git缓冲区
+```
+3. 将缓冲区数据提交到本地仓库
+```bash
+git commit #提交到本地仓库
+
+git commit -m "备注信息" #生成提交记录
+```
+4. 将本地仓库内容推到云端仓库
+```bash
+git push origin master
+#将本地分支上传到云端，如果分支重名则合并，否则云端创建新的分支保存上传内容
+```
+
+### 3.3 删除<br>
+1. 还原/删除本地文件
+```bash
+git restore 文件名 #将本地删除的文件还原（本地仓库中有备份）
+```
+
+```bash
+git rm 文件名 #删除本地仓库的同时删除本地文件，无法还原
+```
+
+2. 上传删除操作，删除云端
+```bash
+git commit -m "删除操作"
+
+git push origin master
+```
+
+### 3.4 获取云端数据<br>
+1. 下载源码
+```bash
+git clone https 项目地址
+```
+2. 拉取仓库
+```bash
+git pull
+```
+如果此时直接上传会显示失败<br>
+
+
+`要通过git提交，不可以在云端直接修改`<br>
+如果在云端进行修改，此时云端比本地新，依赖关系被改变，本地无法再进行上传<br>
+此时可以先拉取更新云端，再推送本地资源<br>
+```bash
+git pull --rebase origin master
+
+git rebase --abort #忽略新版，此时还不能上传
+git rebase --skip #忽略旧版，更新本地后可以上传
+git rebase --continue #版本合并，解决冲突后可以直接上传
+```
+
+## 四、Maekdown(文本修饰语言)
+
 ## 标题修饰符\#
 
 # 标题修饰符（一级标题）
